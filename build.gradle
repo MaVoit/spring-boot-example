@@ -1,0 +1,41 @@
+version = '0.0.1'
+group = 'com.voit.example'
+description = 'Spring boot example project'
+
+buildscript {
+	ext {
+		springBootVersion = '1.2.3.RELEASE'
+	}
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.7
+
+jar {
+	baseName = 'spring-boot-example'
+	version =  '0.0.1'
+}
+
+repositories {
+	jcenter()
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+	compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+	testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.4'
+}
