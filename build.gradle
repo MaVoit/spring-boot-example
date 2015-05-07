@@ -1,7 +1,3 @@
-version = '0.0.1'
-group = 'com.voit.example'
-description = 'Spring boot example project'
-
 buildscript {
 	ext {
 		springBootVersion = '1.2.3.RELEASE'
@@ -33,6 +29,7 @@ repositories {
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
 	compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+	compile("org.springframework.boot:spring-boot-starter-jpa:${springBootVersion}")
 	testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
