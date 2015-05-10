@@ -7,6 +7,7 @@ buildscript {
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        //classpath("org.springframework:springloaded:1.2.1.RELEASE")
     }
 }
 
@@ -15,13 +16,20 @@ apply plugin: 'spring-boot'
 apply plugin: 'idea'
 apply plugin: 'eclipse'
 
+// define Java target
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
-run {
-    systemProperties = System.properties
-}
+// enable hot-swapping of Java code in IntelliJ IDEA
+// see http://docs.spring.io/spring-boot/docs/current/reference/html/howto-hotswapping.html
+//idea {
+//    module {
+//        inheritOutputDirs = false
+//        outputDir = file("$buildDir/classes/main/")
+//    }
+//}
 
+// define name of generated jar file
 jar {
     baseName = 'spring-boot-example'
     version = '0.0.1'
@@ -51,6 +59,7 @@ dependencies {
     //testCompile("org.hsqldb:hsqldb:2.3.1")
 }
 
+// added wrapper task to generate gradlew
 task wrapper(type: Wrapper) {
     gradleVersion = '2.4'
 }

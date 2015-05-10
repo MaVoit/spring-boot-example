@@ -62,7 +62,8 @@ public class PersonService {
      * @return
      */
     public Page<Person> search(String q, String field, Pageable pageable) {
-        LOGGER.debug("Search has been called");
+        LOGGER.debug("Search has been called q="+q);
+
         if ("*".equals(q) || "all".equals(field)) {
             return personRepository.findAll(pageable);
         }
