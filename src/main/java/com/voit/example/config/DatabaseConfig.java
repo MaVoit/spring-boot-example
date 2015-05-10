@@ -12,4 +12,19 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = {"com.voit.example.entity"})
 public class DatabaseConfig {
 
+    /**
+     * Run simple web based database client at http://localhost:8082/
+     *
+     * @return
+     */
+//    @Bean(initMethod = "start", destroyMethod = "shutdown")
+//    @DependsOn("dataSource")
+//    public Server dataSourceWebConnector() {
+//        try {
+//            return Server.createWebServer();
+//        } catch (SQLException sqlException) {
+//            throw new RuntimeException(sqlException);
+//        }
+//    }
+
 }

@@ -30,7 +30,7 @@ public class BaseController {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request, HttpServletResponse response) {
         LOGGER.error("handle illegal argument", ex.getCause());
-        return new ErrorResponse(500, ex.getCause().getClass().getName());
+        return new ErrorResponse(400, ex.getCause().getClass().getName());
     }
 
 
