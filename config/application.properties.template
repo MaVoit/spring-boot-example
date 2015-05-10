@@ -1,5 +1,7 @@
 # copy this file to define your own local properties
 
+#debug=true
+
 # DATASOURCE
 spring.datasource.url=jdbc:h2:/tmp/h2/test
 spring.datasource.username=sa
