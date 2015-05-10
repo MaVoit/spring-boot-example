@@ -7,6 +7,8 @@ import java.util.Date;
 
 
 /**
+ * Class representing a person.
+ *
  * @author mark voit
  */
 @Entity
@@ -16,6 +18,9 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @Column(unique=true, length = 80)
+    private String email;
 
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -27,10 +32,18 @@ public class Person {
     @Column(length = 50)
     private String lastname;
 
+    private Boolean active;
 
-    public Person(String firstname, String lastname) {
+
+    public Person() {
+        this.createdDate = new Date();
+        this.active = true;
+    }
+
+    public Person(String email, String firstname, String lastname) {
+        this();
+        this.email = email;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.createdDate = new Date();
     }
 }
