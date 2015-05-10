@@ -18,6 +18,10 @@ apply plugin: 'eclipse'
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
+run {
+    systemProperties = System.properties
+}
+
 jar {
     baseName = 'spring-boot-example'
     version = '0.0.1'

@@ -19,8 +19,8 @@ public class PersonController extends BaseController {
     @Autowired
     private PersonService personService;
 
-    @RequestMapping(value = "/save", method = {RequestMethod.GET, RequestMethod.POST})
-    public Person save(@ModelAttribute Person person) {
+    @RequestMapping(value = "/create", method = {RequestMethod.GET, RequestMethod.POST})
+    public Person create(@ModelAttribute Person person) {
         // TODO validate person
         return personService.savePerson(person);
     }

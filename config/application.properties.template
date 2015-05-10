@@ -1,0 +1,18 @@
+# copy this file to define your own local properties
+
+# DATASOURCE
+spring.datasource.url=jdbc:h2:/tmp/h2/test
+spring.datasource.username=sa
+spring.datasource.password=
+
+#spring.datasource.url=jdbc:mysql://localhost:3306/springtest
+#spring.datasource.username=springtest
+#spring.datasource.password={password}
+
+
+# In case you need production properties you can define a file
+# application-prod.properties and export system variable SPRING_PROFILES_ACTIVE=prod
+# or run: SPRING_PROFILES_ACTIVE=prod gradle bootRun
+
+# Please do not commit prod parameters to git!
+
