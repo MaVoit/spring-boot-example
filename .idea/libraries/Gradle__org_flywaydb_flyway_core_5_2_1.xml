@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.flywaydb:flyway-core:5.2.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.flywaydb/flyway-core/5.2.1/bfcb5fa963c2100c63ea68b2efad52c582de7380/flyway-core-5.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.flywaydb/flyway-core/5.2.1/99bb5d6f8cbd2de5d0028e45235cd0c0d36a93b2/flyway-core-5.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

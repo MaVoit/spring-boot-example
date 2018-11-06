@@ -7,6 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.Optional;
+
 /**
  * Controller to handle simple operations on <code>Person</code>.
  *
@@ -20,13 +23,12 @@ public class PersonController extends BaseController {
     private PersonService personService;
 
     @RequestMapping(value = "/create", method = {RequestMethod.GET, RequestMethod.POST})
-    public Person create(@ModelAttribute Person person) {
-        // TODO validate person
+    public Person create(@Valid @ModelAttribute Person person) {
         return personService.savePerson(person);
     }
 
     @RequestMapping(value = "/{id}", method = {RequestMethod.GET, RequestMethod.POST})
-    public Person findById(@PathVariable final Long id) {
+    public Optional<Person> findById(@PathVariable final Long id) {
         return personService.findById(id);
     }
 

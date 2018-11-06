@@ -1,8 +1,18 @@
 package com.voit.example.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.Date;
 
 
@@ -13,31 +23,55 @@ import java.util.Date;
  */
 @Entity
 @Data
-public class Person {
+@Table(name = "person")
+@EqualsAndHashCode(exclude = { "version", "createdAt", "updatedAt" })
+@ToString(exclude = { "version", "createdAt", "updatedAt" })
+public class Person implements Serializable {
+
+    private static final long serialVersionUID = 1;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(name = "id", unique = true)
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
 
-    @Column(unique=true, length = 80)
+    @Version
+    @Column(name = "version")
+    private Long version = 1L;
+
+    @NotNull
+    @Email
+    @Length(min = 5, max = 80)
+    @Column(name = "email", nullable = false, unique=true, length = 80)
     private String email;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-
-    @Column(length = 50)
+    @Length(min = 0, max = 50)
+    @Column(name = "first_name", nullable = true, length = 50)
     private String firstname;
 
-    @Column(length = 50)
+    @Length(min = 1, max = 50)
+    @Column(name = "last_name", nullable = false, length = 50)
     private String lastname;
 
-    private Boolean active;
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
+
+    @Column(name = "created_at", nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ssZZZ", timezone = "UTC")
+    @CreationTimestamp
+    private Date createdAt;
+
+    @Column(name = "updated_at", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ssZZZ", timezone = "UTC")
+    @UpdateTimestamp
+    private Date updatedAt;
 
 
     public Person() {
-        this.createdDate = new Date();
-        this.active = true;
+        this.isActive = true;
     }
 
     public Person(String email, String firstname, String lastname) {

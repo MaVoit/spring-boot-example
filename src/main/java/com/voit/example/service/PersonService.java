@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 /**
  * Service to handle operations on <code>Person</code>.
@@ -49,9 +50,9 @@ public class PersonService {
      * @param id
      * @return single person
      */
-    public Person findById(Long id) {
+    public Optional<Person> findById(Long id) {
         LOGGER.debug("findById has been called");
-        return personRepository.findOne(id);
+        return personRepository.findById(id);
     }
 
     /**
@@ -75,5 +76,4 @@ public class PersonService {
             return personRepository.findByName(q, pageable);
         }
     }
-
 }

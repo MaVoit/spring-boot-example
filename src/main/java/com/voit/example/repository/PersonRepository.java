@@ -72,6 +72,6 @@ public interface PersonRepository extends JpaRepository<Person, Long> {
      */
     @Modifying
     @Transactional
-    @Query("delete from Person p where p.active = false")
+    @Query("delete from Person p where p.isActive = false")
     void deleteInactivePerson();
 }

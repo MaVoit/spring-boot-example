@@ -1,6 +1,9 @@
 buildscript {
     ext {
-        springBootVersion = '1.2.3.RELEASE'
+        springBootVersion = '2.1.0.RELEASE'
+        flywayVersion = '5.2.1'
+        lombokVersion = '1.18.4'
+        log4jVersion = ' 1.3.8.RELEASE'
     }
     repositories {
         jcenter()
@@ -12,13 +15,13 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'spring-boot'
 apply plugin: 'idea'
-apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
 
 // define Java target
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
 
 // enable hot-swapping of Java code in IntelliJ IDEA
 // see http://docs.spring.io/spring-boot/docs/current/reference/html/howto-hotswapping.html
@@ -40,26 +43,18 @@ repositories {
 }
 
 dependencies {
-    [
-        "org.springframework.boot:spring-boot-starter:${springBootVersion}",
-        "org.springframework.boot:spring-boot-starter-web:${springBootVersion}",
-        "org.springframework.boot:spring-boot-starter-data-jpa"
-    ].each { dep ->
-        compile(dep) {
-            exclude module: "org.springframework.boot:spring-boot-starter-logging"
-            exclude module: "logback-classic"
-        }
-    }
-    compile ("org.springframework.boot:spring-boot-starter-log4j")
-    //compile("com.h2database:h2")
-    compile("mysql:mysql-connector-java:5.1.28")
-    compile("org.flywaydb:flyway-core:3.2.1")
-    compile("org.projectlombok:lombok:1.14.8")
+    compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
+    compile("com.h2database:h2")
+    compile("org.flywaydb:flyway-core:${flywayVersion}")
+    compile("org.projectlombok:lombok:${lombokVersion}")
+    //compile("mysql:mysql-connector-java:5.1.28")
     //testCompile("org.springframework.boot:spring-boot-starter-test")
     //testCompile("org.hsqldb:hsqldb:2.3.1")
 }
 
-// added wrapper task to generate gradlew
+// run 'gradle wrapper' to generate gradlew
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.4'
+    gradleVersion = '4.10.2'
 }
