@@ -1,4 +1,4 @@
-package com.voit.example.web;
+package com.voit.example.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

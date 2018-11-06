@@ -9,11 +9,11 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.voit.example.repository"})
-@EntityScan(basePackages = {"com.voit.example.entity"})
+@EntityScan(basePackages = {"com.voit.example.model"})
 public class DatabaseConfig {
 
     /**
-     * Run simple web based database client at http://localhost:8082/
+     * Run simple controller based database client at http://localhost:8082/
      *
      * @return
      */

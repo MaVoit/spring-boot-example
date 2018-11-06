@@ -1,4 +1,4 @@
-package com.voit.example.entity;
+package com.voit.example.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;

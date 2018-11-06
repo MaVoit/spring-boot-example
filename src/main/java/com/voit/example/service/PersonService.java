@@ -1,7 +1,7 @@
 package com.voit.example.service;
 
-import com.voit.example.entity.Person;
-import com.voit.example.repository.PersonRepository;
+import com.voit.example.model.Person;
+import com.voit.example.jpa.PersonRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

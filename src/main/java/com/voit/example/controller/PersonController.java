@@ -1,6 +1,6 @@
-package com.voit.example.web;
+package com.voit.example.controller;
 
-import com.voit.example.entity.Person;
+import com.voit.example.model.Person;
 import com.voit.example.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
