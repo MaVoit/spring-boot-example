@@ -1,6 +1,5 @@
 .gradle
-.idea/workspace.xml
-.idea/tasks.xml
+.idea/*
 .DS_Store
 config/application.properties
 config/application-prod.properties
