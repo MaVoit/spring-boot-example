@@ -18,7 +18,7 @@ import java.util.List;
  * @author mark voit
  */
 @Transactional(readOnly = true)
-public interface PersonRepository extends JpaRepository<Person, Long> {
+public interface PersonRepository extends JpaRepository<Person, String> {
 
     /**
      * Example of auto generated query based on method naming convention.

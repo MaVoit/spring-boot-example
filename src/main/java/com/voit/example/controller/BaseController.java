@@ -19,27 +19,27 @@ import java.util.stream.Collectors;
  */
 public class BaseController {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
+    private final Logger log = LoggerFactory.getLogger(getClass().getName());
 
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleUncaughtException(Exception ex, WebRequest request, HttpServletResponse response) {
-        LOGGER.error("handle error", ex);
+        log.error("handle error", ex);
         return new ErrorResponse(500, ex.getMessage());
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleIllegalArgumentException(IllegalArgumentException ex, WebRequest request, HttpServletResponse response) {
-        LOGGER.error("handle illegal argument", ex.getCause());
+        log.error("handle illegal argument", ex.getCause());
         return new ErrorResponse(400, ex.getMessage());
     }
 
     @ExceptionHandler(BindException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleBindException(BindException ex, WebRequest request, HttpServletResponse response) {
-        LOGGER.error("handle bind error", ex.getCause());
+        log.error("handle bind error", ex.getCause());
         String message = ex.getBindingResult().getFieldErrors()
                 .stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)

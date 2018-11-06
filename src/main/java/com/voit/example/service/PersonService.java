@@ -23,7 +23,7 @@ import java.util.Optional;
 @Service
 public class PersonService {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(PersonService.class);
+    private final Logger log = LoggerFactory.getLogger(getClass().getName());
 
     @Autowired
     private PersonRepository personRepository;
@@ -37,7 +37,7 @@ public class PersonService {
      */
     @Transactional
     public Person savePerson(Person person) {
-        LOGGER.debug("savePerson has been called");
+        log.debug("savePerson has been called");
         if (StringUtils.isEmpty(person.getEmail())) {
             throw new IllegalArgumentException("");
         }
@@ -50,8 +50,8 @@ public class PersonService {
      * @param id
      * @return single person
      */
-    public Optional<Person> findById(Long id) {
-        LOGGER.debug("findById has been called");
+    public Optional<Person> findById(String id) {
+        log.debug("findById has been called");
         return personRepository.findById(id);
     }
 
@@ -63,7 +63,7 @@ public class PersonService {
      * @return
      */
     public Page<Person> search(String q, String field, Pageable pageable) {
-        LOGGER.debug("Search has been called q="+q);
+        log.debug("Search has been called q="+q);
 
         if ("*".equals(q) || "all".equals(field)) {
             return personRepository.findAll(pageable);

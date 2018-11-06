@@ -28,7 +28,7 @@ public class PersonController extends BaseController {
     }
 
     @RequestMapping(value = "/{id}", method = {RequestMethod.GET, RequestMethod.POST})
-    public Optional<Person> findById(@PathVariable final Long id) {
+    public Optional<Person> findById(@PathVariable final String id) {
         return personService.findById(id);
     }
 
@@ -40,5 +40,4 @@ public class PersonController extends BaseController {
     ) {
         return personService.search(q, field, pageable);
     }
-
 }

@@ -49,8 +49,8 @@ dependencies {
     compile("com.h2database:h2")
     compile("org.flywaydb:flyway-core:${flywayVersion}")
     compile("org.projectlombok:lombok:${lombokVersion}")
+    testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
     //compile("mysql:mysql-connector-java:5.1.28")
-    //testCompile("org.springframework.boot:spring-boot-starter-test")
     //testCompile("org.hsqldb:hsqldb:2.3.1")
 }
 

@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @author mark voit
  */
 @Configuration
-@EnableJpaRepositories(basePackages = {"com.voit.example.repository"})
+@EnableJpaRepositories(basePackages = {"com.voit.example.jpa"})
 @EntityScan(basePackages = {"com.voit.example.model"})
 public class DatabaseConfig {
 

@@ -1,14 +1,14 @@
 package com.voit.example;
 
-import com.voit.example.config.AppConfig;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author mark voit
  */
+@SpringBootApplication
 public class Application {
-
     public static void main(String[] args) {
-        SpringApplication.run(AppConfig.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
