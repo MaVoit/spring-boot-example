@@ -16,7 +16,7 @@ import java.util.Optional;
  * @author mark voit
  */
 @RestController
-@RequestMapping("/person")
+@RequestMapping("/api/v1/person")
 public class PersonController extends BaseController {
 
     @Autowired
