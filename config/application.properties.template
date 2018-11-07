@@ -5,13 +5,19 @@
 
 # SPRING_DATASOURCE_URL
 spring.datasource.url=jdbc:h2:/tmp/h2/test
+#spring.datasource.url=jdbc:postgresql://localhost:5434/foo_development
 
 # SPRING_DATASOURCE_USERNAME
-spring.datasource.username=sa
+#spring.datasource.username=sa
+spring.datasource.username=foo
 
 # SPRING_DATASOURCE_PASSWORD
-spring.datasource.password=
+spring.datasource.password=foo
+
+# Skip detection of LOB feature support, which isn't supported in postgres driver
+spring.jpa.properties.hibernate.jdbc.lob.non_contextual_creation=true
 
 # Actuator endpoints
 management.endpoints.web.exposure.include=health,info
 management.endpoint.health.show-details=never
+

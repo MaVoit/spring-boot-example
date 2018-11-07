@@ -1,0 +1,12 @@
+version: '3.6'
+services:
+
+  spring-boot-example-db-pg:
+    image: postgres:10.4
+    container_name: spring-boot-example-db-pg
+    ports:
+      - 5434:5432
+    environment:
+      - POSTGRES_USER=foo
+      - POSTGRES_PASSWORD=foo
+      - POSTGRES_DB=foo_development
