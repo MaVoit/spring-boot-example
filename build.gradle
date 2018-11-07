@@ -24,29 +24,20 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.gorylenko.gradle-git-properties'
 
-gitProperties {
-    // Change date format in git.properties file.
-    dateFormat = "yyyy-MM-dd HH:mm:ssZ"
-    dateFormatTimeZone = 'GMT'
-}
-
 // define Java target
 sourceCompatibility = '1.8'
 targetCompatibility = '1.8'
-
-// enable hot-swapping of Java code in IntelliJ IDEA
-// see http://docs.spring.io/spring-boot/docs/current/reference/html/howto-hotswapping.html
-//idea {
-//    module {
-//        inheritOutputDirs = false
-//        outputDir = file("$buildDir/classes/main/")
-//    }
-//}
 
 // define name of generated jar file
 jar {
     baseName = 'spring-boot-example'
     version = '0.0.1'
+}
+
+gitProperties {
+    // Change date format in git.properties file.
+    dateFormat = "yyyy-MM-dd HH:mm:ssZ"
+    dateFormatTimeZone = 'GMT'
 }
 
 repositories {
